@@ -1,0 +1,5 @@
+<launch>
+  <node name="single" pkg="ros_tellopy" type="single_direct.py" output="screen">
+    <rosparam command="load" file="$(find ros_tellopy)/config/single_direct.yaml"/>
+  </node>
+</launch>

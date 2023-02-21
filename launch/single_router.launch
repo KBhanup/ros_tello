@@ -1,0 +1,5 @@
+<launch>
+  <node name="single" pkg="ros_tellopy" type="single_router.py" output="screen">
+    <rosparam command="load" file="$(find ros_tellopy)/config/single_router.yaml"/>
+  </node>
+</launch>

@@ -1,0 +1,5 @@
+robots:
+  - name: "tello0"
+    ip: "192.168.1.110"
+  - name: "tello1"
+    ip: "192.168.1.111"

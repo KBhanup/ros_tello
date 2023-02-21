@@ -1,0 +1,8 @@
+<launch>
+
+  <node name="multi" pkg="ros_tellopy" type="multi_router.py" output="screen"
+  required="true">
+    <rosparam command="load" file="$(find ros_tellopy)/config/tellos_4.yaml"/>
+
+  </node>
+</launch>

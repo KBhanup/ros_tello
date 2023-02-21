@@ -1,0 +1,4 @@
+<launch>
+    <node name="joy" pkg="joy" type="joy_node"/>
+    <node name="joy_control" pkg="ros_tellopy" type="joystick_control_pd.py" output="screen"/>
+</launch>

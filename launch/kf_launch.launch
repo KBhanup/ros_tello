@@ -1,0 +1,5 @@
+<launch>
+    <node name="filter" pkg="ros_tellopy" type="kf_node.py" output="screen">
+        <remap from="vrpn" to="/vrpn_client_node/tello1/pose"/>
+    </node>
+</launch>

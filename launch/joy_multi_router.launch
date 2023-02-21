@@ -1,0 +1,27 @@
+<launch>
+    <include file="$(find ros_tellopy)/launch/joy_control.launch"/>
+    <node name="multi" pkg="ros_tellopy" type="multi_router.py" output="screen">
+        <rosparam command="load" file="$(find ros_tellopy)/config/tellos_4.yaml"/>
+
+        <remap from="/tello0/rc_control" to="/rc_control"/>
+        <remap from="/tello0/takeoff" to="/takeoff"/>
+        <remap from="/tello0/land" to="/land"/>
+        <remap from="/tello0/emergency" to="/emergency"/>
+
+        <remap from="/tello1/rc_control" to="/rc_control"/>
+        <remap from="/tello1/takeoff" to="/takeoff"/>
+        <remap from="/tello1/land" to="/land"/>
+        <remap from="/tello1/emergency" to="/emergency"/>
+
+        <remap from="/tello2/rc_control" to="/rc_control"/>
+        <remap from="/tello2/takeoff" to="/takeoff"/>
+        <remap from="/tello2/land" to="/land"/>
+        <remap from="/tello2/emergency" to="/emergency"/>
+
+        <remap from="/tello3/rc_control" to="/rc_control"/>
+        <remap from="/tello3/takeoff" to="/takeoff"/>
+        <remap from="/tello3/land" to="/land"/>
+        <remap from="/tello3/emergency" to="/emergency"/>
+
+    </node>
+</launch>

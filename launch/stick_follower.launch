@@ -1,0 +1,32 @@
+<launch>
+  <include file="$(find ros_tellopy)/launch/kf_launch.launch" ns="tello1"/>
+  <include file="$(find ros_tellopy)/launch/joy_control.launch"/>
+     <node name="single" pkg="ros_tellopy" type="single_router.py" output="screen">
+    <rosparam command="load" file="$(find ros_tellopy)/config/single_router.yaml"/>
+  </node>
+  
+  <node name="stick_setpoint_publisher" pkg="ros_tellopy" type="stick_setpoint_publisher.py" output="screen">
+  </node>
+  
+  <node name="rosbag" pkg="rosbag" type="record" args="-a -o $(find ros_tellopy)/recording"/>
+	
+  <node pkg="vrpn_client_ros" type="vrpn_client_node" name="vrpn_client_node" output="screen">
+      <rosparam subst_value="true">
+        server: 192.168.0.34
+        port: 3883
+
+        update_frequency: 100.0
+        frame_id: world
+
+        # Use the VRPN server's time, or the client's ROS time.
+        use_server_time: false
+        broadcast_tf: true
+
+        # Must either specify refresh frequency > 0.0, or a list of trackers to create
+        refresh_tracker_frequency: 1.0
+        #trackers:
+        #- FirstTracker
+        #- SecondTracker
+      </rosparam>
+    </node>
+</launch>
